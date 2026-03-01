@@ -106,7 +106,7 @@ export function Header() {
         {/* Proportional Burger Menu */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden flex flex-col justify-center items-end w-10 h-10 z-110 relative"
+          className="lg:hidden cursor-pointer flex flex-col justify-center items-end w-10 h-10 z-110 relative"
         >
           <div className="flex flex-col gap-1.5 items-end">
             <motion.span
