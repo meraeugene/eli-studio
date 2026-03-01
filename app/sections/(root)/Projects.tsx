@@ -140,11 +140,11 @@ export function ProjectsSection() {
             <motion.div variants={item} className="pt-2">
               <Link
                 href={`/projects/${project.slug}`}
-                className="group flex items-center gap-4 bg-white text-black pl-5 pr-2 py-2 rounded-full text-sm font-bold transition-all hover:bg-neutral-200 w-fit"
+                className="group flex items-center gap-3 bg-white text-black pl-5 pr-2 py-2 rounded-full text-sm font-medium transition-all hover:bg-neutral-200 w-fit"
               >
                 See Project
-                <span className="p-2 bg-black text-white rounded-full transition-transform group-hover:rotate-45">
-                  <ArrowRight size={18} />
+                <span className="p-2 bg-black text-white rounded-full ">
+                  <ArrowRight size={16} />
                 </span>
               </Link>
             </motion.div>
@@ -157,13 +157,13 @@ export function ProjectsSection() {
         <div className="flex gap-4">
           <button
             onClick={prev}
-            className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-all backdrop-blur-sm active:scale-90"
+            className="p-3 cursor-pointer rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-all backdrop-blur-sm active:scale-90"
           >
             <ArrowLeft size={24} className="md:w-7 md:h-7" />
           </button>
           <button
             onClick={next}
-            className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-all backdrop-blur-sm active:scale-90"
+            className="p-3 cursor-pointer  rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-all backdrop-blur-sm active:scale-90"
           >
             <ArrowRight size={24} className="md:w-7 md:h-7" />
           </button>

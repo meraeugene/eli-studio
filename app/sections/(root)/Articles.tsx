@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { motion, easeOut } from "framer-motion";
 import { articles } from "../../data";
 import Link from "next/link";
@@ -59,7 +59,7 @@ export function ArticlesSection() {
             className="group flex items-center gap-3 bg-black text-white pl-5 pr-2 py-2 rounded-full text-sm font-medium cursor-pointer transition-all hover:bg-neutral-800 w-max"
           >
             See All Articles
-            <span className="bg-white text-black rounded-full p-2 transition-transform group-hover:rotate-45">
+            <span className="bg-white text-black rounded-full p-2 ">
               <ArrowRight size={16} />
             </span>
           </Link>
@@ -111,8 +111,8 @@ export function ArticlesSection() {
                     {art.title}
                   </h3>
                 </div>
-                <div className="bg-white text-black p-3 rounded-full transition-transform duration-500 group-hover:-translate-y-2 group-hover:rotate-45 shrink-0">
-                  <ArrowRight size={18} />
+                <div className=" bg-white/10 backdrop-blur-md text-white p-3 rounded-full ">
+                  <ArrowUpRight size={20} />
                 </div>
               </div>
             </motion.div>

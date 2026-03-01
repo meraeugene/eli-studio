@@ -11,13 +11,14 @@ const ProjectsHero = () => {
     offset: ["start start", "end start"],
   });
 
-  // Move text down and disappear
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "150%"]);
+  // Balanced parallax for text
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "80%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
     <section
       ref={containerRef}
-      className="relative h-[80vh] overflow-hidden flex items-end pb-14 px-54"
+      className="relative h-[70vh] md:h-[80vh] overflow-hidden flex items-end pb-12 md:pb-20 px-4 md:px-12 2xl:px-54 font-inter"
     >
       {/* Background image */}
       <div className="absolute inset-0 z-0">
@@ -27,26 +28,29 @@ const ProjectsHero = () => {
           alt="Luxury Interior"
           className="w-full h-full object-cover"
         />
+        {/* Subtle bottom fade to transition into the project grid */}
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-t from-black/60 via-transparent to-transparent z-10" />
       </div>
 
-      {/* Text */}
+      {/* Text Content */}
       <motion.div
-        style={{ y: textY }}
-        className="relative z-20 text-white max-w-2xl"
+        style={{ y: textY, opacity }}
+        className="relative z-20 text-white w-full max-w-4xl"
       >
         <motion.h1
-          initial={{ y: 50, opacity: 0 }}
+          initial={{ y: 60, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="text-8xl font-medium"
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-medium leading-[1.1] tracking-tighter uppercase"
         >
           All Projects
         </motion.h1>
+
         <motion.p
-          initial={{ y: 50, opacity: 0 }}
+          initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-4 text-lg max-w-lg"
+          className="mt-6 text-lg md:text-xl max-w-lg leading-relaxed text-white/80"
         >
           Selected works showcasing our approach to thoughtful planning,
           material sensitivity, and refined spatial design.

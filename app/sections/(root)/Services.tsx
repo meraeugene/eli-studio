@@ -50,7 +50,7 @@ export function ServicesSection() {
             className="group flex items-center gap-3 bg-black text-white pl-5 pr-2 py-2 rounded-full text-sm font-medium cursor-pointer transition-all hover:bg-neutral-800 w-max"
           >
             More About Us
-            <span className="bg-white text-black rounded-full p-2 transition-transform group-hover:rotate-45">
+            <span className="bg-white text-black rounded-full p-2 ">
               <ArrowRight size={16} />
             </span>
           </Link>
@@ -65,12 +65,12 @@ export function ServicesSection() {
             <motion.div
               key={idx}
               variants={item}
-              className="bg-gray-50 border border-transparent hover:border-gray-200 transition-all duration-300 p-6 rounded-2xl"
+              className="bg-gray-50 border border-transparent  transition-all duration-300 p-6 rounded-2xl"
             >
               <div className="bg-white border border-gray-100 text-black text-xs font-bold w-10 h-10 flex items-center justify-center rounded-full mb-6 shadow-sm">
                 {svc.num}
               </div>
-              <h3 className="text-lg font-medium xl:text-xl mb-3 uppercase tracking-tight">
+              <h3 className="text-lg font-medium xl:text-xl mb-3 uppercase tracking-wide">
                 {svc.title}
               </h3>
               <p className="text-sm md:text-base text-gray-500 leading-relaxed">

@@ -10,8 +10,7 @@ const containerVariants: Variants = {
   hidden: {},
   show: {
     transition: {
-      staggerChildren: 0.18,
-      delayChildren: 0.2,
+      staggerChildren: 0.15,
     },
   },
 };
@@ -19,38 +18,37 @@ const containerVariants: Variants = {
 const cardVariants: Variants = {
   hidden: {
     opacity: 0,
-    y: 60,
-    scale: 0.97,
+    y: 40,
+    scale: 0.98,
   },
   show: {
     opacity: 1,
     y: 0,
     scale: 1,
     transition: {
-      duration: 0.9,
-      ease: [0.22, 1, 0.36, 1], // cinematic ease
+      duration: 0.8,
+      ease: [0.22, 1, 0.36, 1],
     },
   },
 };
 
 export const ArticlesGrid = () => {
   return (
-    <section className="px-54 py-20 bg-white">
+    <section className="px-4 md:px-12 2xl:px-54 pt-16 bg-white">
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8"
         variants={containerVariants}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.15 }}
+        viewport={{ once: true, amount: 0.1 }}
       >
         {articles.map((post) => (
           <Link key={post.slug} prefetch href={`/articles/${post.slug}`}>
             <motion.div
               variants={cardVariants}
-              transition={{ duration: 0.4 }}
-              className="group relative aspect-video overflow-hidden rounded-lg cursor-pointer"
+              className="group relative aspect-4/3 md:aspect-video overflow-hidden rounded-2xl cursor-pointer bg-neutral-100"
             >
-              {/* Image */}
+              {/* Image & Overlay */}
               <motion.div
                 className="absolute inset-0"
                 whileHover={{ scale: 1.05 }}
@@ -61,32 +59,34 @@ export const ArticlesGrid = () => {
                   alt={post.title}
                   className="object-cover w-full h-full"
                 />
-
-                {/* Premium Gradient Overlay */}
-                <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/0 to-black/60 transition-all duration-700" />
+                {/* Unified Gradient for legibility */}
+                <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/10 to-black/40 transition-opacity group-hover:opacity-90" />
               </motion.div>
 
-              {/* Header Info */}
-              <div className="absolute top-6 left-6 z-20">
-                <span className="px-3 py-2  text-xs tracking-widest bg-white/20 backdrop-blur-md rounded-full border border-white/30 text-white">
+              {/* Category Tag */}
+              <div className="absolute top-4 left-4 md:top-6 md:left-6 z-20">
+                <span className="px-3 py-1.5 text-[10px] md:text-xs  uppercase tracking-widest bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-white">
                   {post.category}
                 </span>
               </div>
 
-              {/* Bottom Info */}
-              <div className="absolute inset-x-6 bottom-6 z-20 flex justify-between items-end text-white">
-                <div className="max-w-[40%]">
-                  <p className="text-sm mb-2 opacity-80">{post.date}</p>
-                  <h4 className="text-2xl font-medium  tracking-tight">
+              {/* Content Info */}
+              <div className="absolute inset-x-4 bottom-4 md:inset-x-6 md:bottom-6 z-20 flex justify-between items-end text-white">
+                <div className="max-w-[80%] md:max-w-[70%]">
+                  <p className="text-[10px] md:text-xs uppercase tracking-widest mb-2 opacity-70 font-medium">
+                    {post.date}
+                  </p>
+                  <h4 className="text-xl md:text-2xl xl:text-3xl font-medium tracking-tight leading-tight">
                     {post.title}
                   </h4>
                 </div>
 
                 <motion.div
+                  whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className="p-3 rounded-full bg-black text-white   transition-all duration-300"
+                  className="p-2 md:p-3 rounded-full  transition-transform duration-300 hidden sm:flex bg-white/10 backdrop-blur-md text-white"
                 >
-                  <ArrowUpRight size={18} />
+                  <ArrowUpRight size={20} />
                 </motion.div>
               </div>
             </motion.div>

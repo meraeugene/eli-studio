@@ -57,7 +57,7 @@ export function CtaSection() {
             className="group flex items-center gap-3 bg-black text-white pl-5 pr-2 py-2 rounded-full text-sm font-medium cursor-pointer transition-all hover:bg-neutral-800 w-max"
           >
             Get In Touch
-            <span className="bg-white text-black rounded-full p-2 transition-transform group-hover:rotate-45">
+            <span className="bg-white text-black rounded-full p-2 ">
               <ArrowRight size={16} />
             </span>
           </Link>

@@ -5,7 +5,6 @@ import { motion, Variants } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
 export const ProcessSection = () => {
-  // Variants for all text elements
   const textVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -16,7 +15,7 @@ export const ProcessSection = () => {
   };
 
   const stepVariants: Variants = {
-    hidden: { opacity: 0, y: 40, scale: 0.95 },
+    hidden: { opacity: 0, y: 40, scale: 0.98 },
     visible: {
       opacity: 1,
       y: 0,
@@ -26,10 +25,13 @@ export const ProcessSection = () => {
   };
 
   return (
-    <section id="process" className="py-24 pb-0 px-54 bg-white">
-      {/* Section header */}
+    <section
+      id="process"
+      className="pt-16 md:pt-24 px-4 md:px-12 2xl:px-54 bg-white overflow-hidden"
+    >
+      {/* Section Tag */}
       <motion.div
-        className="flex items-center gap-2 mb-12"
+        className="flex items-center gap-3 mb-12"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -38,79 +40,65 @@ export const ProcessSection = () => {
         <div className="p-2 bg-black rounded-full text-white">
           <ArrowUpRight size={14} />
         </div>
-        <span className="text-sm font-medium uppercase tracking-widest">
+        <span className="text-xs font-semibold uppercase tracking-[0.2em] ">
           Our Process
         </span>
       </motion.div>
 
-      {/* Headings */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-18 mb-24">
+      {/* Headings Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 mb-16 md:mb-16">
         <motion.h2
-          className="text-3xl  font-light leading-tight"
+          className="text-2xl md:text-3xl lg:text-4xl font-light leading-tight text-neutral-900"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={textVariants}
         >
           Our studio approaches each project with clarity, intention, and a deep
-          understanding of space. We take time to understand context, lifestyle,
-          and architectural character before shaping ideas into refined,
-          cohesive interiors.
+          understanding of space. We take time to understand context and
+          architectural character.
         </motion.h2>
         <motion.p
-          className="text-gray-500 text-2xl self-end leading-relaxed"
+          className="text-neutral-600 text-lg md:text-xl lg:text-2xl self-end leading-relaxed"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={textVariants}
         >
-          Through a thoughtful design process that places emphasis on
-          proportion, material selection, light, and spatial flow, we create
-          calm and cohesive environments tailored to contemporary living.
+          Through a thoughtful design process, we create calm and cohesive
+          environments tailored to contemporary living.
         </motion.p>
       </div>
 
-      {/* Steps */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* Steps Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 ">
         {steps.map((step, index) => (
           <motion.div
             key={step.id}
             variants={stepVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ delay: index * 0.2 }}
-            whileHover={{ y: -10, scale: 1.02 }}
-            className={`p-10 bg-[#F4F4F4] rounded-sm min-h-75 flex flex-col gap-6 h-fit
-              ${index === 1 ? "mt-10 md:mt-16" : ""}
-              ${index === 2 ? "mt-20 md:mt-32" : ""}`}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ delay: index * 0.1 }}
+            whileHover={{ y: -8 }}
+            className={`
+              p-6 md:p-8 bg-gray-100 rounded-2xl flex flex-col gap-4 h-fit transition-shadow hover:shadow-sm
+              ${index === 1 ? "md:mt-0 lg:mt-16" : ""}
+              ${index === 2 ? "md:mt-0 lg:mt-32" : ""}
+            `}
           >
             <div>
-              <div className="flex items-center gap-4 mb-8">
-                <span className="text-sm font-mono">{step.id}</span>
-                <div className="h-px grow bg-black/20" />
+              <div className="flex items-center gap-4 mb-4">
+                <span className="text-sm font-mono font-medium ">
+                  0{step.id}
+                </span>
+                <div className="h-px grow bg-neutral-200" />
               </div>
-              <motion.h3
-                className="text-2xl mb-4 font-light"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={textVariants}
-                transition={{ delay: 0.1 + index * 0.2 }}
-              >
+              <h3 className="text-xl md:text-2xl font-normal text-neutral-900 tracking-tight">
                 {step.title}
-              </motion.h3>
+              </h3>
             </div>
-            <motion.p
-              className="text-gray-600 leading-relaxed"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={textVariants}
-              transition={{ delay: 0.15 + index * 0.2 }}
-            >
-              {step.desc}
-            </motion.p>
+            <p className="text-sm md:text-base leading-relaxed">{step.desc}</p>
           </motion.div>
         ))}
       </div>
