@@ -35,11 +35,11 @@ const ProjectDescription = ({ project }: { project: Project }) => {
   ];
 
   return (
-    <section className="px-4 md:px-12 2xl:px-54 py-16 md:py-32 bg-white ">
+    <section className="px-4 md:px-12 2xl:px-54 py-16 md:py-24 bg-white ">
       <div className="flex flex-col lg:flex-row gap-16 lg:gap-28">
         {/* Left Column — Sticky Description & Stats */}
         <motion.div
-          className="lg:w-[40%] lg:sticky lg:top-32 h-fit"
+          className="lg:w-[40%] lg:sticky lg:top-14 h-fit"
           variants={stagger}
           initial="hidden"
           whileInView="show"

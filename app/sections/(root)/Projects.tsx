@@ -105,6 +105,10 @@ export function ProjectsSection() {
             exit="hidden"
             className="space-y-6 md:space-y-10"
           >
+            <p className="text-xs mb-4 font-semibold uppercase tracking-[0.3em] text-white/70">
+              {project.category} — {project.location}
+            </p>
+
             <motion.h2
               variants={item}
               className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.9] text-white drop-shadow-2xl"
