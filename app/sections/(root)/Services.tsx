@@ -7,7 +7,6 @@ import { services } from "../../data";
 import Link from "next/link";
 
 export function ServicesSection() {
-  // Variants for staggered animation
   const container = {
     hidden: {},
     show: { transition: { staggerChildren: 0.15 } },
@@ -18,18 +17,18 @@ export function ServicesSection() {
   };
 
   return (
-    <section className="py-12 px-4 md:px-12 xl:px-54 lg:py-24 flex flex-col lg:flex-row gap-16">
-      {/* Left text & services */}
+    <section className="py-16 md:py-20 lg:py-24 px-4 md:px-12 2xl:px-54 flex flex-col lg:flex-row gap-12 lg:gap-16">
+      {/* Left Content Area */}
       <motion.div
-        className="lg:w-1/2 flex flex-col justify-center"
+        className="w-full lg:w-1/2 flex flex-col justify-center"
         variants={container}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.2 }}
       >
         <motion.div
           variants={item}
-          className="inline-flex items-center gap-2 bg-gray-100 px-2 py-1 rounded-full text-sm mb-8 w-max"
+          className="inline-flex items-center gap-2 bg-gray-100 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-8 w-max"
         >
           <span className="bg-black text-white rounded-full p-1">
             <ArrowRight size={12} className="-rotate-45" />
@@ -39,42 +38,42 @@ export function ServicesSection() {
 
         <motion.h2
           variants={item}
-          className="text-3xl md:text-4xl xl:text-5xl font-medium tracking-tight uppercase mb-8"
+          className="text-3xl md:text-4xl xl:text-5xl font-medium tracking-tight uppercase mb-8 leading-[1.1]"
         >
-          Design services for <br /> refined interior spaces
+          Design services for <br className="hidden md:block" /> refined
+          interior spaces
         </motion.h2>
 
-        <motion.div variants={item} whileHover={{ opacity: 0.8 }}>
+        <motion.div variants={item} className="mb-12">
           <Link
             href="/about-us"
-            className="flex items-center gap-3 bg-black text-white p-3 rounded-full text-sm font-medium cursor-pointer transition-colors w-max mb-12"
+            className="group flex items-center gap-3 bg-black text-white pl-5 pr-2 py-2 rounded-full text-sm font-medium cursor-pointer transition-all hover:bg-neutral-800 w-max"
           >
-            <span className="bg-white text-black rounded-full p-1">
-              {" "}
-              <ArrowRight size={16} />{" "}
-            </span>
             More About Us
+            <span className="bg-white text-black rounded-full p-2 transition-transform group-hover:rotate-45">
+              <ArrowRight size={16} />
+            </span>
           </Link>
         </motion.div>
 
         {/* Services Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2  gap-4"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6"
           variants={container}
         >
           {services.map((svc, idx) => (
             <motion.div
               key={idx}
               variants={item}
-              className="bg-gray-100 hover:shadow-lg transition-shadow ease-in p-4 rounded-lg"
+              className="bg-gray-50 border border-transparent hover:border-gray-200 transition-all duration-300 p-6 rounded-2xl"
             >
-              <div className="bg-white text-black text-sm w-10 h-10 flex items-center justify-center rounded-full mb-6">
+              <div className="bg-white border border-gray-100 text-black text-xs font-bold w-10 h-10 flex items-center justify-center rounded-full mb-6 shadow-sm">
                 {svc.num}
               </div>
-              <h3 className="text-lg font-medium xl:text-xl mb-2">
+              <h3 className="text-lg font-medium xl:text-xl mb-3 uppercase tracking-tight">
                 {svc.title}
               </h3>
-              <p className="text-sm xl:text-base    text-gray-500 leading-relaxed">
+              <p className="text-sm md:text-base text-gray-500 leading-relaxed">
                 {svc.desc}
               </p>
             </motion.div>
@@ -82,15 +81,18 @@ export function ServicesSection() {
         </motion.div>
       </motion.div>
 
-      {/* Right image */}
+      {/* Right Image Area */}
       <motion.div
-        className="lg:w-1/2 relative min-h-150 rounded-lg overflow-hidden"
+        className="w-full lg:w-1/2 relative min-h-100 md:min-h-125 lg:min-h-150 rounded-3xl overflow-hidden order-first lg:order-last"
         variants={item}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
       >
         <motion.div
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: easeOut }}
+          initial={{ opacity: 0, scale: 1.1 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, ease: easeOut }}
           className="absolute inset-0"
         >
           <img

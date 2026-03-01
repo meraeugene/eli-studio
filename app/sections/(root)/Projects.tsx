@@ -10,21 +10,19 @@ import Link from "next/link";
 export function ProjectsSection() {
   const [index, setIndex] = useState(0);
   const project = projects[index];
-  const intervalTime = 5000; // 5 seconds per slide
+  const intervalTime = 5000;
 
   const next = () => setIndex((prev) => (prev + 1) % projects.length);
   const prev = () =>
     setIndex((prev) => (prev - 1 + projects.length) % projects.length);
 
-  // Auto-loop
   useEffect(() => {
     const interval = setInterval(() => {
       next();
     }, intervalTime);
     return () => clearInterval(interval);
-  }, []);
+  }, [index]); // Added index to dependency to ensure sync
 
-  // Variants for staggered animation
   const container = {
     hidden: {},
     show: { transition: { staggerChildren: 0.1 } },
@@ -32,15 +30,15 @@ export function ProjectsSection() {
   const item = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } };
 
   return (
-    <section className="relative h-screen bg-[#1a1a1a] text-white overflow-hidden py-8 px-4 md:px-12 xl:px-54 lg:py-24 flex flex-col justify-between font-inter">
-      {/* Background Image */}
+    <section className="relative h-screen bg-[#1a1a1a] text-white overflow-hidden py-6 px-4 md:px-12 2xl:px-54 flex flex-col justify-between font-inter">
+      {/* Background Image - Smooth Ken Burns Effect */}
       <AnimatePresence mode="wait">
         <motion.div
           key={project.cover}
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 0.6, scale: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 0.5, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.95 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
           className="absolute inset-0"
         >
           <img
@@ -51,34 +49,25 @@ export function ProjectsSection() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.5),rgba(0,0,0,0),rgba(0,0,0,0.5))]" />
+      <div className="absolute inset-0 bg-linear-to-b from-black/60 via-transparent to-black/70" />
 
-      {/* Top Card */}
-      <div className="relative z-10 flex justify-between flex-wrap gap-6 items-start mb-12">
+      {/* Top Header Section */}
+      <div className="relative z-10 flex flex-col md:flex-row justify-between items-start gap-6 pt-4">
         <AnimatePresence mode="wait">
           <motion.div
             key={project.id + "-featured-text"}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{
-              opacity: 1,
-              y: 0,
-              transition: { duration: 0.6, ease: "easeOut" },
-            }}
-            exit={{
-              opacity: 0,
-              y: -20,
-              transition: { duration: 0.4, ease: "easeIn" },
-            }}
-            className="text-xl font-medium"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 20 }}
+            className="text-lg md:text-xl font-medium tracking-tight"
           >
             Featured Projects
           </motion.div>
         </AnimatePresence>
 
-        {/* Preview Card */}
-        <div className="bg-white/10 backdrop-blur-md p-2 rounded-xl flex gap-4 w-64 border border-white/20">
-          <div className="relative w-24 h-20 rounded overflow-hidden shrink-0">
+        {/* Preview Card - Hidden on very small mobile if needed, but here optimized for small width */}
+        <div className="bg-white/5 backdrop-blur-xl p-2 rounded-2xl flex gap-3 w-full max-w-70 border border-white/10">
+          <div className="relative w-20 h-16 md:w-24 md:h-20 rounded-xl overflow-hidden shrink-0">
             <img
               src={project.cover}
               alt="preview"
@@ -89,23 +78,15 @@ export function ProjectsSection() {
           <AnimatePresence mode="wait">
             <motion.div
               key={project.id + "-card-text"}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.6, ease: "easeOut" },
-              }}
-              exit={{
-                opacity: 0,
-                y: -20,
-                transition: { duration: 0.4, ease: "easeIn" },
-              }}
-              className="flex flex-col  "
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="flex flex-col justify-center"
             >
-              <p className="text-base text-gray-400">
+              <p className="text-xs text-white/50 font-mono">
                 / {String(index + 1).padStart(2, "0")}
               </p>
-              <p className="text-sm font-medium mt-1 leading-tight">
+              <p className="text-sm font-medium mt-0.5 leading-tight">
                 {project.subtitle}
               </p>
             </motion.div>
@@ -113,8 +94,8 @@ export function ProjectsSection() {
         </div>
       </div>
 
-      {/* Project Info */}
-      <div className="relative z-10 flex flex-col md:flex-row justify-between items-end pb-12">
+      {/* Main Content Area */}
+      <div className="relative z-10 flex flex-col justify-center grow max-w-4xl">
         <AnimatePresence mode="wait">
           <motion.div
             key={project.id}
@@ -122,76 +103,80 @@ export function ProjectsSection() {
             initial="hidden"
             animate="show"
             exit="hidden"
-            className="w-full md:w-1/2 flex flex-col gap-6"
+            className="space-y-6 md:space-y-10"
           >
             <motion.h2
               variants={item}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-wide leading-14 md:leading-18 text-white drop-shadow-lg"
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.9] text-white drop-shadow-2xl"
             >
-              {project.title.split(" ")[0]} <br />
-              {project.title.split(" ").slice(1).join(" ")}
+              {project.title.split(" ")[0]} <br className="hidden sm:block" />
+              <span className="text-white/80">
+                {project.title.split(" ").slice(1).join(" ")}
+              </span>
             </motion.h2>
 
-            {/* Stats */}
+            {/* Responsive Stats Grid */}
             <motion.div
               variants={item}
-              className="flex flex-wrap gap-10 border-t border-white/10 pt-4"
+              className="grid grid-cols-3 md:grid-cols-2 sm:flex flex-wrap gap-6 md:gap-12 border-t border-white/10 pt-6"
             >
               {[
-                { label: "Bedrooms", value: project.bedrooms },
-                { label: "Bathrooms", value: project.bathrooms },
-                { label: "Size (sq ft)", value: project.size },
+                { label: "Beds", value: project.bedrooms },
+                { label: "Baths", value: project.bathrooms },
+                { label: "Sq Ft", value: project.size },
               ].map((stat) => (
-                <div key={stat.label} className="flex flex-col gap-1">
-                  <p className="text-xl font-semibold text-white">
+                <div key={stat.label} className="flex flex-col gap-0.5">
+                  <p className="text-xl md:text-2xl font-bold text-white">
                     {stat.value}
                   </p>
-                  <p className="text-sm  uppercase tracking-wider">
+                  <p className="text-[10px] uppercase tracking-widest text-white/50">
                     {stat.label}
                   </p>
                 </div>
               ))}
             </motion.div>
 
-            {/* Button */}
-            <motion.div variants={item} whileHover={{ opacity: 0.8 }}>
+            {/* Action Button */}
+            <motion.div variants={item} className="pt-2">
               <Link
                 href={`/projects/${project.slug}`}
-                className="flex items-center gap-3 my-16 bg-white text-black px-3 py-2 rounded-full text-sm font-semibold cursor-pointer transition-shadow shadow-md hover:shadow-lg w-max"
+                className="group flex items-center gap-4 bg-white text-black pl-5 pr-2 py-2 rounded-full text-sm font-bold transition-all hover:bg-neutral-200 w-fit"
               >
-                <span className=" p-1 bg-black text-white rounded-full">
-                  <ArrowRight size={16} />
-                </span>
                 See Project
+                <span className="p-2 bg-black text-white rounded-full transition-transform group-hover:rotate-45">
+                  <ArrowRight size={18} />
+                </span>
               </Link>
             </motion.div>
           </motion.div>
         </AnimatePresence>
       </div>
 
-      {/* Centered Controls + Smooth Progress */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
-        {/* Controls */}
+      {/* Bottom Controls - Positioned relative to bottom on mobile */}
+      <div className="relative z-10 flex flex-col items-center gap-4 pb-4">
         <div className="flex gap-4">
-          {[prev, next].map((fn, i) => (
-            <button
-              key={i}
-              onClick={fn}
-              className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition shadow-lg hover:shadow-xl cursor-pointer"
-            >
-              {i === 0 ? <ArrowLeft size={28} /> : <ArrowRight size={28} />}
-            </button>
-          ))}
+          <button
+            onClick={prev}
+            className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-all backdrop-blur-sm active:scale-90"
+          >
+            <ArrowLeft size={24} className="md:w-7 md:h-7" />
+          </button>
+          <button
+            onClick={next}
+            className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-all backdrop-blur-sm active:scale-90"
+          >
+            <ArrowRight size={24} className="md:w-7 md:h-7" />
+          </button>
         </div>
 
-        {/* Smooth progress bar */}
-        <div className="w-40 h-1 bg-white/20 rounded-full overflow-hidden mt-2">
+        {/* Progress Bar Container */}
+        <div className="w-32 md:w-48 h-0.5 bg-white/10 rounded-full overflow-hidden">
           <motion.div
-            className="h-full bg-white rounded-full origin-left"
-            key={index} // restart animation on slide change
+            key={index}
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: intervalTime / 1000, ease: "linear" }}
+            className="h-full bg-white origin-left"
           />
         </div>
       </div>

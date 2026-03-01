@@ -21,10 +21,10 @@ export function FaqSection() {
   };
 
   return (
-    <section className="py-12 lg:py-24 px-4 font-inter md:px-12 xl:px-54  flex flex-col lg:flex-row gap-16">
+    <section className="py-16 md:py-20 lg:py-24 px-4 md:px-12 2xl:px-54 flex flex-col lg:flex-row gap-12 lg:gap-16 font-inter">
       {/* Left Text & Button */}
       <motion.div
-        className="lg:w-1/2"
+        className="w-full lg:w-1/2"
         variants={container}
         initial="hidden"
         whileInView="show"
@@ -32,7 +32,7 @@ export function FaqSection() {
       >
         <motion.div
           variants={item}
-          className="inline-flex items-center gap-2 bg-gray-100 p-2 rounded-full text-sm mb-8"
+          className="inline-flex items-center gap-3 bg-gray-100 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-8"
         >
           <span className="bg-black text-white rounded-full p-1">
             <ArrowRight size={12} className="-rotate-45" />
@@ -42,32 +42,35 @@ export function FaqSection() {
 
         <motion.h2
           variants={item}
-          className="text-3xl md:text-4xl xl:text-5xl  font-medium tracking-tight uppercase leading-tight mb-6"
+          className="text-3xl md:text-4xl xl:text-5xl font-medium tracking-tight uppercase leading-[1.1] mb-6"
         >
-          Your questions, <br /> answered
+          Your questions, <br className="hidden md:block" /> answered
         </motion.h2>
 
-        <motion.p variants={item} className="text-gray-600 mb-8 max-w-sm  ">
+        <motion.p
+          variants={item}
+          className="text-gray-500 text-lg md:text-xl mb-10 max-w-sm leading-relaxed"
+        >
           Helpful information designed to guide you through our services and
           design approach.
         </motion.p>
 
-        <motion.div variants={item} whileHover={{ opacity: 0.8 }}>
+        <motion.div variants={item}>
           <Link
             href="/about-us#process"
-            className="flex items-center gap-3 bg-black text-white p-3 rounded-full text-sm font-medium cursor-pointer transition-colors w-max"
+            className="group flex items-center gap-3 bg-black text-white pl-5 pr-2 py-2 rounded-full text-sm font-medium cursor-pointer transition-all hover:bg-neutral-800 w-max"
           >
-            <span className="bg-white text-black rounded-full p-1">
+            Our Process
+            <span className="bg-white text-black rounded-full p-2 transition-transform group-hover:rotate-45">
               <ArrowRight size={16} />
             </span>
-            Learn More About Our Process
           </Link>
         </motion.div>
       </motion.div>
 
       {/* FAQ Items */}
       <motion.div
-        className="lg:w-1/2 space-y-5"
+        className="w-full lg:w-1/2 space-y-4 md:space-y-6"
         variants={container}
         initial="hidden"
         whileInView="show"

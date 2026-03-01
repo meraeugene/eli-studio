@@ -60,7 +60,7 @@ export function HeroSection() {
 
       {/* Hero Content */}
       <motion.div
-        className="relative md:px-12 xl:px-54 z-10 flex h-full flex-col  justify-end p-4 md:p-16 md:pb-0"
+        className="relative md:px-12  2xl:px-54 z-10 flex h-full flex-col  justify-end p-4 md:p-16 md:pb-0"
         variants={container}
         initial="hidden"
         whileInView="show"
@@ -97,7 +97,7 @@ export function HeroSection() {
 
         <motion.h1
           variants={item}
-          className="text-[28vw] md:text-[24vw]  xl:text-[18vw] leading-none font-extrabold tracking-tighter text-white font-mona flex items-baseline "
+          className="text-[28vw] md:text-[24vw]  lg:text-[18vw] leading-none font-extrabold tracking-tighter text-white font-mona flex items-baseline "
         >
           eli{" "}
           <span className="font-playfair  font-extralight italic">studio</span>

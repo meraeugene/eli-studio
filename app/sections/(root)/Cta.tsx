@@ -7,7 +7,6 @@ import { avatars } from "../../data";
 import Link from "next/link";
 
 export function CtaSection() {
-  // Animation variants
   const container = {
     hidden: {},
     show: { transition: { staggerChildren: 0.15 } },
@@ -18,10 +17,10 @@ export function CtaSection() {
   };
 
   return (
-    <section className="lg:py-24 py-12 font-inter px-4 md:px-12 xl:px-54  flex flex-col lg:flex-row md:gap-16 gap-8 lg:items-center">
+    <section className="py-16 md:py-20 lg:py-24 font-inter px-4 md:px-12 2xl:px-54 flex flex-col lg:flex-row gap-12 lg:gap-16 lg:items-center">
       {/* Left Content */}
       <motion.div
-        className="lg:w-1/2 flex flex-col items-start"
+        className="w-full lg:w-1/2 flex flex-col items-start"
         variants={container}
         initial="hidden"
         whileInView="show"
@@ -29,73 +28,69 @@ export function CtaSection() {
       >
         <motion.div
           variants={item}
-          className="inline-flex items-center gap-2 bg-gray-100 p-2 rounded-full text-sm mb-8"
+          className="inline-flex items-center gap-3 bg-gray-100 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-8"
         >
           <span className="bg-black text-white rounded-full p-1">
             <ArrowRight size={12} className="-rotate-45" />
           </span>
-          Years of Experience, Projects Still Growing
+          Years of Experience
         </motion.div>
 
         <motion.h2
           variants={item}
-          className="text-3xl md:text-4xl xl:text-5xl  font-medium tracking-tight uppercase mb-8"
+          className="text-3xl md:text-4xl xl:text-5xl font-medium tracking-tight uppercase mb-6 leading-[1.1]"
         >
-          Start a thoughtful <br /> design process
+          Start a thoughtful <br className="hidden md:block" /> design process
         </motion.h2>
 
         <motion.p
           variants={item}
-          className="text-base  text-gray-600 mb-8 max-w-md"
+          className="text-lg md:text-xl text-gray-500 mb-10 max-w-md leading-relaxed"
         >
           Let&apos;s work together to create an interior that reflects your
-          ideas and lifestyle, guided by a design process focused on detail,
-          balance, and timeless quality.
+          ideas and lifestyle, guided by detail and timeless quality.
         </motion.p>
 
-        <motion.div variants={item}>
+        <motion.div variants={item} className="mb-12 lg:mb-20">
           <Link
             href="/contact"
-            className="flex items-center gap-3 bg-black text-white p-3 rounded-full text-sm font-medium hover:bg-gray-800 cursor-pointer transition-colors w-max lg:mb-28 mb-8"
+            className="group flex items-center gap-3 bg-black text-white pl-5 pr-2 py-2 rounded-full text-sm font-medium cursor-pointer transition-all hover:bg-neutral-800 w-max"
           >
-            <span className="bg-white text-black rounded-full p-1">
+            Get In Touch
+            <span className="bg-white text-black rounded-full p-2 transition-transform group-hover:rotate-45">
               <ArrowRight size={16} />
             </span>
-            Get In Touch With Us
           </Link>
         </motion.div>
-        {/* Avatars */}
-        <motion.div variants={item}>
-          <p className="text-sm text-gray-500 mb-4">
-            Partnering with clients to create refined interiors
-          </p>
 
-          <div className="flex -space-x-3">
+        {/* Avatars Overlay */}
+        <motion.div variants={item} className="flex flex-col gap-4">
+          <p className="text-xs md:text-sm text-gray-400 uppercase tracking-widest font-medium">
+            Partnering with clients globally
+          </p>
+          <div className="flex -space-x-3 items-center">
             {avatars.map((src, i) => (
-              <motion.div
+              <div
                 key={i}
-                variants={item}
-                className="
-          w-10 h-10 rounded-full
-          border-2 border-white
-          overflow-hidden relative
-         
-        "
+                className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white overflow-hidden relative shadow-sm"
               >
                 <img
                   src={src}
                   alt={`Avatar ${i + 1}`}
                   className="w-full h-full object-cover"
                 />
-              </motion.div>
+              </div>
             ))}
+            <div className="pl-6 text-sm font-medium text-gray-600">
+              + 120 Projects
+            </div>
           </div>
         </motion.div>
       </motion.div>
 
       {/* Right Image */}
       <motion.div
-        className="lg:w-1/2 w-full h-150 relative rounded-lg overflow-hidden"
+        className="w-full lg:w-1/2 aspect-4/5 md:aspect-square lg:aspect-4/5 relative rounded-2xl overflow-hidden"
         initial={{ opacity: 0, scale: 1.05 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, ease: easeOut }}
