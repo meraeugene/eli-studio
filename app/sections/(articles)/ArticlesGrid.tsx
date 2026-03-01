@@ -36,7 +36,7 @@ export const ArticlesGrid = () => {
   return (
     <section className="px-4 md:px-12 2xl:px-54 pt-16 bg-white">
       <motion.div
-        className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8"
+        className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12"
         variants={containerVariants}
         initial="hidden"
         whileInView="show"
