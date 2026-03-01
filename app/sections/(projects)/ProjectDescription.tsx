@@ -7,86 +7,97 @@ import { Project } from "./PortfolioGrid";
 import { NextProjectButton } from "@/app/components/NextProjectButton";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 30 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.9, ease: cubicBezier(0.22, 1, 0.36, 1) },
+    transition: { duration: 0.8, ease: cubicBezier(0.22, 1, 0.36, 1) },
   },
 };
 
 const stagger = {
   hidden: {},
   show: {
-    transition: { staggerChildren: 0.15 },
+    transition: { staggerChildren: 0.1 },
   },
 };
 
 const ProjectDescription = ({ project }: { project: Project }) => {
   const stats = [
-    { icon: MapPin, value: project.location, label: "Area" },
-    { icon: Home, value: project.size.toLocaleString(), label: "Square" },
+    { icon: MapPin, value: project.location, label: "Location" },
+    {
+      icon: Home,
+      value: `${project.size.toLocaleString()} sq ft`,
+      label: "Area",
+    },
     { icon: BedDouble, value: project.bedrooms, label: "Bedrooms" },
     { icon: Bath, value: project.bathrooms, label: "Bathrooms" },
   ];
 
   return (
-    <section className="px-6 py-24 md:px-12 lg:px-54 bg-white">
-      <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
-        {/* Left Column — Animated */}
+    <section className="px-4 md:px-12 2xl:px-54 py-16 md:py-32 bg-white ">
+      <div className="flex flex-col lg:flex-row gap-16 lg:gap-28">
+        {/* Left Column — Sticky Description & Stats */}
         <motion.div
-          className="lg:w-1/2 lg:sticky lg:top-32 h-fit"
+          className="lg:w-[40%] lg:sticky lg:top-32 h-fit"
           variants={stagger}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
         >
-          <motion.h2 variants={fadeUp} className="text-3xl mb-6">
-            Description
+          <motion.h2
+            variants={fadeUp}
+            className="text-xs  uppercase tracking-[0.2em]  mb-6"
+          >
+            Project Overview
           </motion.h2>
 
           <motion.p
             variants={fadeUp}
-            className="text-gray-500 leading-relaxed max-w-xl"
+            className=" text-lg md:text-xl leading-relaxed mb-16 font-light "
           >
             {project.description}
           </motion.p>
 
           <motion.div
-            className="grid grid-cols-2 gap-12 pt-12"
+            className="divide-y divide-neutral-100 border-t border-b border-neutral-100"
             variants={stagger}
           >
-            {stats.map(({ icon: Icon, value, label }) => (
+            {stats.map(({ value, label }) => (
               <motion.div
                 key={label}
                 variants={fadeUp}
-                className="flex items-start gap-4"
+                className="flex justify-between items-center py-5 group"
               >
-                <div className="p-3 bg-black text-white rounded-full">
-                  <Icon size={20} strokeWidth={1.5} />
-                </div>
-                <div>
-                  <p className="text-lg">{value}</p>
-                  <p className="text-sm text-gray-600 mt-1">{label}</p>
-                </div>
+                <span className="text-xs uppercase tracking-widest  group-hover:text-black transition-colors">
+                  {label}
+                </span>
+                <span className="text-lg  font-light">{value}</span>
               </motion.div>
             ))}
           </motion.div>
         </motion.div>
 
-        {/* Right Column — Static */}
-        <div className="lg:w-1/2 space-y-8">
+        {/* Right Column — Gallery Images */}
+        <div className="lg:w-[60%] flex flex-col gap-6 md:gap-12">
           {project.gallery.map((image, i) => (
-            <div key={i} className="overflow-hidden rounded-lg">
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: i * 0.1 }}
+              className="overflow-hidden rounded-2xl bg-neutral-50"
+            >
               <img
                 src={image}
                 alt={`${project.title} detail ${i + 1}`}
-                className="w-full object-cover"
+                className="w-full h-auto object-cover hover:scale-[1.02] transition-transform duration-1000"
               />
-            </div>
+            </motion.div>
           ))}
 
-          <div className="flex justify-end ">
+          <div className="flex justify-start lg:justify-end ">
             <NextProjectButton currentSlug={project.slug} />
           </div>
         </div>
