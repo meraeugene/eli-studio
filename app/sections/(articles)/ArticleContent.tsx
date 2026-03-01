@@ -44,7 +44,7 @@ const ArticleDetails = ({ article }: { article: Article }) => {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-4xl  xl:text-5xl  tracking-tight leading-[1.05] max-w-5xl"
+          className="text-4xl  2xl:text-5xl  tracking-tight leading-[1.05] max-w-5xl"
         >
           {article.title}
         </motion.h1>
