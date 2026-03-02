@@ -49,7 +49,7 @@ export function FaqSection() {
 
         <motion.p
           variants={item}
-          className="text-gray-500 text-lg md:text-xl mb-10 max-w-sm leading-relaxed"
+          className="text-gray-500 md:text-xl mb-10 max-w-sm leading-relaxed"
         >
           Helpful information designed to guide you through our services and
           design approach.

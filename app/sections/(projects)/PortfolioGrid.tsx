@@ -63,25 +63,28 @@ const ProjectCard = ({
           <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
         </motion.div>
 
-        <div className="relative z-20 h-full w-full p-6  flex flex-col justify-end text-white">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-            <div className="flex-1">
+        <div className="relative z-20 h-full w-full p-6   text-white">
+          <div className="flex flex-col justify-between lg:justify-end h-full">
+            <div>
               <span className="inline-block w-fit px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-[10px] uppercase tracking-widest  mb-4 border border-white/20">
                 {project.subtitle}
               </span>
-              <h3 className="text-3xl md:text-4xl lg:text-5xl max-w-xs font-medium tracking-tighter lg:leading-12">
-                {project.title}
-              </h3>
             </div>
 
-            <motion.div className="flex items-center gap-3 pl-4 pr-1.5 py-1.5 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full group-hover:bg-white group-hover:text-black transition-all duration-500 w-max">
-              <span className="text-[10px] font-bold uppercase tracking-widest">
-                Explore
-              </span>
-              <div className="p-2 rounded-full bg-white text-black group-hover:bg-black group-hover:text-white transition-colors">
-                <ArrowRight size={14} />
-              </div>
-            </motion.div>
+            <div className="flex flex-col gap-4">
+              <h3 className="text-3xl lg:text-4xl  2xl:text-5xl max-w-xs font-medium tracking-tighter lg:leading-12">
+                {project.title}
+              </h3>
+
+              <motion.div className="flex items-center gap-3 pl-4 pr-1.5 py-1.5 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full group-hover:bg-white group-hover:text-black transition-all duration-500 w-max">
+                <span className="text-[10px] font-bold uppercase tracking-widest">
+                  Explore
+                </span>
+                <div className="p-2 rounded-full bg-white text-black group-hover:bg-black group-hover:text-white transition-colors">
+                  <ArrowRight size={14} />
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </Link>

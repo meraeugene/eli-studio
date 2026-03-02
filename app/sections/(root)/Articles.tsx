@@ -46,7 +46,7 @@ export function ArticlesSection() {
 
           <motion.p
             variants={item}
-            className="text-gray-500 text-lg md:text-xl max-w-lg leading-relaxed"
+            className="text-gray-500  md:text-xl max-w-lg leading-relaxed"
           >
             Insights and reflections on interior design, architecture, and the
             evolving relationship between space and everyday life.

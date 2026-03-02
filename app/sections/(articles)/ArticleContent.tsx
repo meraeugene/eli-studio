@@ -44,7 +44,7 @@ const ArticleDetails = ({ article }: { article: Article }) => {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-4xl  2xl:text-5xl  tracking-tight leading-[1.05] max-w-5xl"
+          className="text-3xl  2xl:text-5xl  tracking-tight leading-[1.05] max-w-5xl"
         >
           {article.title}
         </motion.h1>
@@ -66,7 +66,7 @@ const ArticleDetails = ({ article }: { article: Article }) => {
         initial={{ opacity: 0, scale: 0.99 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-        className="mb-16 "
+        className="mb-12 "
       >
         <div className="relative aspect-video md:aspect-21/9 w-full overflow-hidden rounded-2xl bg-gray-100 shadow-sm">
           <Image
@@ -86,19 +86,19 @@ const ArticleDetails = ({ article }: { article: Article }) => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
-          className="space-y-12"
+          className="space-y-6 lg:space-y-12"
         >
           {/* Paragraphs with enhanced readability */}
           <motion.p
             variants={fadeInUp}
-            className="text-xl leading-[1.6]  font-light"
+            className="lg:text-xl leading-[1.6]  font-light"
           >
             {article.paragraph1}
           </motion.p>
 
           <motion.p
             variants={fadeInUp}
-            className="text-lg md:text-xl leading-[1.7] font-light"
+            className=" lg:text-xl leading-[1.7] font-light"
           >
             {article.paragraph2}
           </motion.p>
@@ -106,7 +106,7 @@ const ArticleDetails = ({ article }: { article: Article }) => {
           {/* Grid: Supporting visuals */}
           <motion.div
             variants={fadeInUp}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 py-4"
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 py-4"
           >
             <div className="group relative aspect-3/4 overflow-hidden rounded-xl bg-gray-50">
               <Image
@@ -128,7 +128,7 @@ const ArticleDetails = ({ article }: { article: Article }) => {
 
           <motion.p
             variants={fadeInUp}
-            className="text-lg md:text-xl leading-[1.7] font-light"
+            className="md:text-xl leading-[1.7] font-light"
           >
             {article.paragraph3}
           </motion.p>
@@ -136,7 +136,7 @@ const ArticleDetails = ({ article }: { article: Article }) => {
           {/* Footer: Contextual Navigation */}
           <motion.footer
             variants={fadeInUp}
-            className="pt-20 mt-20 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-8"
+            className="pt-12 mt-12 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-8"
           >
             <div className="text-center md:text-left">
               <p className="text-sm uppercase tracking-widest mb-2 ">Up Next</p>

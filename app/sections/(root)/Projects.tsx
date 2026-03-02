@@ -105,7 +105,7 @@ export function ProjectsSection() {
             exit="hidden"
             className="space-y-6 md:space-y-10"
           >
-            <p className="text-xs mb-4 font-semibold uppercase tracking-[0.3em] text-white/70">
+            <p className="text-xs mb-4 font-semibold uppercase  text-white/70">
               {project.category} — {project.location}
             </p>
 

@@ -28,16 +28,16 @@ export function Footer() {
           <motion.div className="max-w-md" variants={container}>
             <motion.h2
               variants={item}
-              className="text-4xl md:text-6xl mb-6  tracking-tight"
+              className="text-5xl md:text-6xl mb-6  font-medium tracking-tight"
             >
               Begin Your <br />
-              <span className="font-playfair italic ">Design</span> Journey
+              <span className="font-playfair italic font-extralight ">
+                Design
+              </span>{" "}
+              Journey
             </motion.h2>
 
-            <motion.p
-              variants={item}
-              className="text-gray-300  text-sm max-w-[75%] md:text-base  mb-10 "
-            >
+            <motion.p variants={item} className="text-gray-300    mb-10 ">
               Get in touch to discuss your project and explore how our design
               approach can bring your vision to life.
             </motion.p>

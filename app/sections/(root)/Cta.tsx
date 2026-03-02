@@ -45,7 +45,7 @@ export function CtaSection() {
 
         <motion.p
           variants={item}
-          className="text-lg md:text-xl text-gray-500 mb-10 max-w-md leading-relaxed"
+          className="md:text-xl text-gray-500 mb-10 max-w-md leading-relaxed"
         >
           Let&apos;s work together to create an interior that reflects your
           ideas and lifestyle, guided by detail and timeless quality.

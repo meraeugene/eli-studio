@@ -45,15 +45,15 @@ const ProjectDetailsHero = ({ project }: { project: Project }) => {
           className="flex flex-col gap-6"
         >
           {/* Subtitle/Category Tag */}
-          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-white/70">
+          <span className="text-xs font-semibold uppercase  text-white/70">
             {project.category} — {project.location}
           </span>
 
-          <h1 className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-medium tracking-tighter leading-[0.9] uppercase">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-medium tracking-tighter  uppercase">
             {project.title}
           </h1>
 
-          <p className="mt-4 text-lg md:text-xl lg:text-2xl max-w-lg leading-relaxed text-white/80 font-light">
+          <p className=" md:text-xl lg:text-2xl max-w-lg leading-relaxed text-white/80 font-light">
             {project.intro}
           </p>
         </motion.div>

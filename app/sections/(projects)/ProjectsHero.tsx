@@ -50,7 +50,7 @@ const ProjectsHero = () => {
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-6 text-lg md:text-xl max-w-lg leading-relaxed text-white/80"
+          className="mt-6 md:text-xl max-w-lg leading-relaxed text-white/80"
         >
           Selected works showcasing our approach to thoughtful planning,
           material sensitivity, and refined spatial design.

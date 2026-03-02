@@ -54,7 +54,7 @@ export const TeamSection = () => {
           Designers of the Studio
         </motion.h2>
         <motion.p
-          className="text-neutral-500 text-lg md:text-xl leading-relaxed"
+          className="text-neutral-500  md:text-xl leading-relaxed"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}

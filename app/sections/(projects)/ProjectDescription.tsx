@@ -54,7 +54,7 @@ const ProjectDescription = ({ project }: { project: Project }) => {
 
           <motion.p
             variants={fadeUp}
-            className=" text-lg md:text-xl leading-relaxed mb-16 font-light "
+            className=" md:text-xl leading-relaxed mb-16 font-light "
           >
             {project.description}
           </motion.p>
@@ -72,7 +72,7 @@ const ProjectDescription = ({ project }: { project: Project }) => {
                 <span className="text-xs uppercase tracking-widest  group-hover:text-black transition-colors">
                   {label}
                 </span>
-                <span className="text-lg  font-light">{value}</span>
+                <span className=" font-light">{value}</span>
               </motion.div>
             ))}
           </motion.div>

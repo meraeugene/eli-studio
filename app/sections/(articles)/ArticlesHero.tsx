@@ -50,7 +50,7 @@ const ArticlesHero = () => {
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-6 text-lg md:text-xl lg:text-2xl max-w-2xl leading-relaxed text-white/90 font-light"
+          className="mt-4  md:text-xl lg:text-2xl max-w-2xl leading-relaxed text-white/90 font-light"
         >
           Exploring ideas, inspirations, and considered approaches that shape
           our work and the way we design interior environments.

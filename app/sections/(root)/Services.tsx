@@ -17,7 +17,7 @@ export function ServicesSection() {
   };
 
   return (
-    <section className="py-16 md:py-20 lg:py-24 px-4 md:px-12 2xl:px-54 flex flex-col lg:flex-row gap-12 lg:gap-16">
+    <section className="py-16 md:py-20 lg:py-24 px-4 md:px-12 2xl:px-54 flex flex-col-reverse lg:flex-row gap-12 lg:gap-16">
       {/* Left Content Area */}
       <motion.div
         className="w-full lg:w-1/2 flex flex-col justify-center"
@@ -65,17 +65,15 @@ export function ServicesSection() {
             <motion.div
               key={idx}
               variants={item}
-              className="bg-gray-50 border border-transparent  transition-all duration-300 p-6 rounded-2xl"
+              className="bg-gray-100 border border-transparent  transition-all duration-300 p-6 rounded-2xl"
             >
-              <div className="bg-white border border-gray-100 text-black text-xs font-bold w-10 h-10 flex items-center justify-center rounded-full mb-6 shadow-sm">
+              <div className="bg-white border border-gray-100 text-black text-xs font-bold w-10 h-10 flex items-center justify-center rounded-full mb-6 ">
                 {svc.num}
               </div>
               <h3 className="text-lg font-medium xl:text-xl mb-3 uppercase tracking-wide">
                 {svc.title}
               </h3>
-              <p className="text-sm md:text-base text-gray-500 leading-relaxed">
-                {svc.desc}
-              </p>
+              <p className="  text-neutral-600 leading-relaxed">{svc.desc}</p>
             </motion.div>
           ))}
         </motion.div>

@@ -55,7 +55,7 @@ export function StatsSection() {
 
         {/* Right paragraph */}
         <motion.div variants={item} className="w-full xl:w-[45%] xl:pt-28">
-          <p className="text-lg md:text-xl lg:text-2xl leading-snug">
+          <p className=" md:text-xl lg:text-2xl leading-snug">
             Through a thoughtful and collaborative process, we translate design
             concepts into environments that respond to both the space and the
             people who inhabit it, delivering interiors that are calm, enduring,
@@ -86,10 +86,10 @@ export function StatsSection() {
               first:pl-0
             `}
           >
-            <h3 className="text-4xl md:text-5xl font-semibold mb-4 md:mb-6">
+            <h3 className="text-5xl font-semibold mb-4 md:mb-6">
               {stat.value}
             </h3>
-            <p className="text-sm md:text-base text-gray-600 leading-relaxed max-w-xs">
+            <p className=" md:text-base text-gray-600 leading-relaxed max-w-xs">
               {stat.desc}
             </p>
           </motion.div>
