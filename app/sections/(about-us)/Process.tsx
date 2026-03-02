@@ -48,7 +48,7 @@ export const ProcessSection = () => {
       {/* Headings Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 mb-16 md:mb-16">
         <motion.h2
-          className="text-lg md:text-3xl lg:text-4xl font-light leading-tight text-neutral-900"
+          className="text-lg md:text-3xl lg:text-4xl font-light leading-tight "
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
@@ -98,7 +98,7 @@ export const ProcessSection = () => {
                 {step.title}
               </h3>
             </div>
-            <p className=" leading-relaxed ">{step.desc}</p>
+            <p className="text-gray-600 leading-relaxed ">{step.desc}</p>
           </motion.div>
         ))}
       </div>

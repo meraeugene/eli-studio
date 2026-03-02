@@ -58,7 +58,7 @@ const ContactForm = () => {
 
           <motion.p
             variants={fadeUp}
-            className="text-neutral-500 text-lg md:text-xl max-w-md mb-16 leading-relaxed"
+            className="text-neutral-500  md:text-xl max-w-md mb-16 leading-relaxed"
           >
             Reach out to discuss your project, collaborations, or general
             enquiries. We respond to all messages within 24 hours.
