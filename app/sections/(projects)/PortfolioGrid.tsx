@@ -94,7 +94,7 @@ const ProjectCard = ({
 
 export default function PortfolioGridSection() {
   return (
-    <section className="bg-white py-16 px-4 md:px-12 2xl:px-54">
+    <section className="bg-white py-16 px-4 md:px-12 2xl:px-24">
       {/* Increased gap and bottom padding to account for the staggered md:translate-y */}
       <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:pb-32">
         {projects.map((project, idx) => (

@@ -25,7 +25,7 @@ const containerVariants: Variants = {
 
 const ContactForm = () => {
   return (
-    <section className="w-full px-4 md:px-12 2xl:px-54 py-20 md:py-32 bg-white font-inter">
+    <section className="w-full px-4 md:px-12 2xl:px-24 py-20 md:py-32 bg-white font-inter">
       {/* Top Tag */}
       <motion.div
         className="inline-flex items-center gap-3 bg-neutral-100 px-3 py-1.5 rounded-full text-[10px] md:text-xs font-semibold uppercase tracking-widest mb-12"

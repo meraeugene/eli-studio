@@ -24,7 +24,7 @@ export function StatsSection() {
   };
 
   return (
-    <section className="py-12 md:py-20 lg:py-24 font-inter px-4 md:px-12  2xl:px-54">
+    <section className="py-12 md:py-20 lg:py-24 font-inter px-4 md:px-12  2xl:px-24">
       {/* Text Section */}
       <motion.div
         className="flex flex-col xl:flex-row justify-between items-start gap-8 xl:gap-20 mb-12 md:mb-16 lg:mb-20"

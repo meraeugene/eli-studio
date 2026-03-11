@@ -30,7 +30,7 @@ export function ProjectsSection() {
   const item = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } };
 
   return (
-    <section className="relative h-screen bg-[#1a1a1a] text-white overflow-hidden py-6 px-4 md:px-12 2xl:px-54 flex flex-col justify-between font-inter">
+    <section className="relative h-screen bg-[#1a1a1a] text-white overflow-hidden py-6 px-4 md:px-12 2xl:px-24 flex flex-col justify-between font-inter">
       {/* Background Image - Smooth Ken Burns Effect */}
       <AnimatePresence mode="wait">
         <motion.div

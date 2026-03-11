@@ -35,7 +35,7 @@ const ProjectDescription = ({ project }: { project: Project }) => {
   ];
 
   return (
-    <section className="px-4 md:px-12 2xl:px-54 py-16 md:py-24 bg-white ">
+    <section className="px-4 md:px-12 2xl:px-24 py-16 md:py-24 bg-white ">
       <div className="flex flex-col lg:flex-row gap-16 lg:gap-28">
         {/* Left Column — Sticky Description & Stats */}
         <motion.div
@@ -54,7 +54,7 @@ const ProjectDescription = ({ project }: { project: Project }) => {
 
           <motion.p
             variants={fadeUp}
-            className=" md:text-xl leading-relaxed mb-16 font-light "
+            className=" md:text-lg leading-relaxed mb-16 font-light "
           >
             {project.description}
           </motion.p>

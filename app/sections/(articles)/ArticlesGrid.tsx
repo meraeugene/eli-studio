@@ -34,7 +34,7 @@ const cardVariants: Variants = {
 
 export const ArticlesGrid = () => {
   return (
-    <section className="px-4 md:px-12 2xl:px-54 pt-16 bg-white">
+    <section className="px-4 md:px-12 2xl:px-24 pt-16 bg-white">
       <motion.div
         className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12"
         variants={containerVariants}

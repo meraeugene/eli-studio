@@ -25,7 +25,7 @@ export const TeamSection = () => {
   };
 
   return (
-    <section className="pt-16 md:pt-24 px-4 md:px-12 2xl:px-54 bg-white font-inter">
+    <section className="pt-16 md:pt-24 px-4 md:px-12 2xl:px-24 bg-white font-inter">
       {/* Section header */}
       <motion.div
         className="flex items-center gap-3 mb-8"

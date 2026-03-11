@@ -17,7 +17,7 @@ export function CtaSection() {
   };
 
   return (
-    <section className="py-16 md:py-20 lg:py-24 font-inter px-4 md:px-12 2xl:px-54 flex flex-col lg:flex-row gap-12 lg:gap-16 lg:items-center">
+    <section className="py-16 md:py-20 lg:py-24 font-inter px-4 md:px-12 2xl:px-24 flex flex-col lg:flex-row gap-12 lg:gap-16 lg:items-center">
       {/* Left Content */}
       <motion.div
         className="w-full lg:w-1/2 flex flex-col items-start"

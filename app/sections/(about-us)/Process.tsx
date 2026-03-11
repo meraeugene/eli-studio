@@ -27,7 +27,7 @@ export const ProcessSection = () => {
   return (
     <section
       id="process"
-      className="pt-16 md:pt-24 px-4 md:px-12 2xl:px-54 bg-white overflow-hidden"
+      className="pt-16 md:pt-24 px-4 md:px-12 2xl:px-24 bg-white overflow-hidden"
     >
       {/* Section Tag */}
       <motion.div

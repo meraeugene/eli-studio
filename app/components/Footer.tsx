@@ -16,7 +16,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-black  px-4 md:px-12 py-10 md:pb-0 font-inter text-white lg:pt-18 2xl:px-54 overflow-hidden">
+    <footer className="bg-black  px-4 md:px-12 py-10 md:pb-0 font-inter text-white lg:pt-18 2xl:px-24 overflow-hidden">
       <motion.div
         variants={container}
         initial="hidden"

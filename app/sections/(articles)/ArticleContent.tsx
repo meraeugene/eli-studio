@@ -37,7 +37,7 @@ const ArticleDetails = ({ article }: { article: Article }) => {
   };
 
   return (
-    <main className="w-full px-4 md:px-12 2xl:px-54 py-24 md:py-32 bg-white font-inter text-[#1a1a1a] selection:bg-black selection:text-white">
+    <main className="w-full px-4 md:px-12 2xl:px-24 py-24 md:py-32 bg-white font-inter text-[#1a1a1a] selection:bg-black selection:text-white">
       {/* Header: Title and Metadata */}
       <header className="mb-12 md:mb-20 flex flex-col lg:flex-row justify-between lg:items-center gap-8">
         <motion.h1

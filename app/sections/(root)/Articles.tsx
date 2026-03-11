@@ -17,7 +17,7 @@ export function ArticlesSection() {
   };
 
   return (
-    <section className="py-16 md:py-20 lg:py-24 font-inter px-4 md:px-12 2xl:px-54">
+    <section className="py-16 md:py-20 lg:py-24 font-inter px-4 md:px-12 2xl:px-24">
       {/* Heading & Button */}
       <motion.div
         className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 md:mb-16 gap-8"

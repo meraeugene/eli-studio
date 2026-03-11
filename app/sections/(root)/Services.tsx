@@ -17,7 +17,7 @@ export function ServicesSection() {
   };
 
   return (
-    <section className="py-16 md:py-20 lg:py-24 px-4 md:px-12 2xl:px-54 flex flex-col-reverse lg:flex-row gap-12 lg:gap-16">
+    <section className="py-16 md:py-20 lg:py-24 px-4 md:px-12 2xl:px-24 flex flex-col-reverse lg:flex-row gap-12 lg:gap-16">
       {/* Left Content Area */}
       <motion.div
         className="w-full lg:w-1/2 flex flex-col justify-center"
