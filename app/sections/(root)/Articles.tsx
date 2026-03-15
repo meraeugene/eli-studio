@@ -67,31 +67,22 @@ export function ArticlesSection() {
       </motion.div>
 
       {/* Articles Grid */}
-      <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
-      >
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {articles.map((art) => (
           <Link
             href={`/articles/${art.slug}`}
             key={art.slug}
             className="block group"
           >
-            <motion.div
-              variants={item}
-              className="relative aspect-4/5 md:aspect-3/4 rounded-2xl overflow-hidden cursor-pointer bg-gray-100"
-            >
+            <div className="relative aspect-4/5 md:aspect-3/4 rounded-2xl overflow-hidden cursor-pointer bg-gray-100">
               {/* Image with scale animation */}
-              <motion.div className="absolute inset-0">
+              <div className="absolute inset-0">
                 <img
                   src={art.heroImage}
                   alt={art.title}
                   className="object-cover w-full h-full transition-transform duration-1000 ease-out group-hover:scale-110"
                 />
-              </motion.div>
+              </div>
 
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-linear-to-b from-black/20 via-transparent to-black/80 transition-opacity duration-500 group-hover:opacity-90" />
@@ -115,10 +106,10 @@ export function ArticlesSection() {
                   <ArrowUpRight size={20} />
                 </div>
               </div>
-            </motion.div>
+            </div>
           </Link>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 }

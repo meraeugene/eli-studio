@@ -64,7 +64,7 @@ export function CtaSection() {
         </motion.div>
 
         {/* Avatars Overlay */}
-        <motion.div variants={item} className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4">
           <p className="text-xs md:text-sm text-gray-400 uppercase tracking-widest font-medium">
             Partnering with clients globally
           </p>
@@ -85,23 +85,17 @@ export function CtaSection() {
               + 120 Projects
             </div>
           </div>
-        </motion.div>
+        </div>
       </motion.div>
 
       {/* Right Image */}
-      <motion.div
-        className="w-full lg:w-1/2 aspect-4/5 md:aspect-square lg:aspect-4/5 relative rounded-2xl overflow-hidden"
-        initial={{ opacity: 0, scale: 1.05 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, ease: easeOut }}
-        viewport={{ once: true, amount: 0.3 }}
-      >
+      <div className="w-full lg:w-1/2 aspect-4/5 md:aspect-square lg:aspect-4/5 relative rounded-2xl overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2940&auto=format&fit=crop"
           alt="Bathroom interior"
           className="object-cover w-full h-full"
         />
-      </motion.div>
+      </div>
     </section>
   );
 }
