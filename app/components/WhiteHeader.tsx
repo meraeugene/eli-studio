@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, cubicBezier } from "framer-motion";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { nav_links } from "@/app/data";
 
 interface NavLink {
@@ -11,6 +12,8 @@ interface NavLink {
 }
 
 export function WhiteHeader() {
+  const pathname = usePathname();
+  const router = useRouter();
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isHero, setIsHero] = useState(true);
   const [show, setShow] = useState(true);
@@ -35,6 +38,10 @@ export function WhiteHeader() {
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "unset";
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
   }, [isOpen]);
 
   const menuVariants = {
@@ -59,6 +66,20 @@ export function WhiteHeader() {
         ease: cubicBezier(0.19, 1, 0.22, 1),
       },
     },
+  };
+
+  const handleMobileNavClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    event.preventDefault();
+    setIsOpen(false);
+
+    if (href === pathname) return;
+
+    window.setTimeout(() => {
+      router.push(href);
+    }, 420);
   };
 
   return (
@@ -153,7 +174,7 @@ export function WhiteHeader() {
                     >
                       <Link
                         href={href}
-                        onClick={() => setIsOpen(false)}
+                        onClick={(event) => handleMobileNavClick(event, href)}
                         className="text-[12vw] md:text-[8vw] font-medium tracking-tighter text-black leading-[0.9] block"
                       >
                         {label}
